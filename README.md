@@ -8,8 +8,8 @@ Two augmentators are implemented in this project.
 "mixstyleaug" - mixed style augmentation. (Thanks to https://github.com/clovaai/WCT2)
 
 # Todo list
-- [ ] Solve the bugs for CPU.
-- [ ] Available for single channel images (gray images).
+- [X] Solve the bugs for CPU.
+- [X] Available for single channel images (gray images).
 - [ ] Available for 3D patches.
-- [ ] More optional parameters for mixstyleaug.
-- [ ] Fix the bugs in [**example_for_a_image.py**](https://github.com/mp31192/MixStyleAugmentator/blob/main/example_for_a_image.py)
+- [X] More optional parameters for mixstyleaug. A random_mix parameter has been added.
+- [X] Fix the bugs of saving in [**example_for_a_image.py**](https://github.com/mp31192/MixStyleAugmentator/blob/main/example_for_a_image.py)
