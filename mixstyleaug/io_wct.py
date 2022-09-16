@@ -139,4 +139,4 @@ def mkdir(dname):
     if not os.path.exists(dname):
         os.makedirs(dname)
     else:
-        assert os.path.isdir(dname), 'alread exists filename {}'.format(dname)
+        assert os.path.isdir(dname), 'already exists filename {}'.format(dname)

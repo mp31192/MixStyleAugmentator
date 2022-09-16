@@ -9,6 +9,7 @@ from Augmentator_models import Augmentator
 
 ## select the number of GPU
 device = torch.device('cuda:1' if torch.cuda.is_available() else 'cpu')
+# device = 'cpu'
 
 ## Example for self-style augmentation
 ## choice an augmentation method
@@ -16,7 +17,7 @@ model_type = "styleaug" ## [styleaug, mixstyleaug]
 augmentator = Augmentator(model_name=model_type, device=device)
 
 ## read example images
-example_path = "content.jpg"
+example_path = "style.jpg"
 img = Image.open(example_path)
 img_array = np.asarray(img) ## shape NxNx3, must be three channels image
 img_shape = img_array.shape
@@ -29,7 +30,7 @@ img_array = (img_array - torch.min(img_array)) / (torch.max(img_array) - torch.m
 img_array = F.interpolate(img_array, size=(256, 256), mode="bilinear", align_corners=True)
 
 if model_type == "mixstyleaug":
-    style_path = "style.jpg"
+    style_path = "style2.jpg"
     style_img = Image.open(style_path)
     style_img_array = np.asarray(style_img)
 
@@ -53,7 +54,7 @@ result = F.interpolate(result, size=(img_shape[0], img_shape[1]), mode="bilinear
 ## save to jpg
 save_img = result.cpu().numpy()
 save_img = np.transpose(save_img[0, :, :, :], [1, 2, 0])
-save_img = save_img * 255
+save_img = (save_img - np.min(save_img)) / (np.max(save_img) - np.min(save_img)) * 255
 save_img = save_img.astype('uint8')
 save_img = Image.fromarray(save_img)
 save_img.save("selfstylized.jpg")

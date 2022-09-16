@@ -5,9 +5,10 @@ import numpy as np
 from .transfer_WCT import WCT2
 
 class MixStyleAugmentor:
-    def __init__(self, device, alpha=1.0, option_unpool='cat5', feature_used='encoder'):
+    def __init__(self, device, alpha=1.0, option_unpool='cat5', feature_used='encoder', random_mix=True):
 
         self.device = device
+        self.random_mix = random_mix
 
         option_unpool_ = option_unpool  # choices=['sum', 'cat5']
         self.alpha_ = alpha
@@ -22,6 +23,9 @@ class MixStyleAugmentor:
     def inference(self, content, style, content_segment=np.asarray([]), style_segment=np.asarray([])):
         with torch.no_grad():
             inputs = self.wct2.transfer(content, style, content_segment, style_segment, alpha=self.alpha_)
-            random_index = random.uniform(0.2, 0.8)
-            results = inputs * random_index + content * (1-random_index)
+            if self.random_mix:
+                random_index = random.uniform(0.5, 1)
+                results = inputs * random_index + content * (1-random_index)
+            else:
+                results = inputs
         return results

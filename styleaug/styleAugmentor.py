@@ -53,9 +53,9 @@ class StyleAugmentor(nn.Module):
         self.stylePredictor.to(device)
 
         # load checkpoints:
-        checkpoint_ghiasi = torch.load(join(dirname(__file__),'checkpoints/checkpoint_transformer.pth'))
-        checkpoint_stylepredictor = torch.load(join(dirname(__file__),'checkpoints/checkpoint_stylepredictor.pth'))
-        checkpoint_embeddings = torch.load(join(dirname(__file__),'checkpoints/checkpoint_embeddings.pth'))
+        checkpoint_ghiasi = torch.load(join(dirname(__file__),'checkpoints/checkpoint_transformer.pth'), map_location=device)
+        checkpoint_stylepredictor = torch.load(join(dirname(__file__),'checkpoints/checkpoint_stylepredictor.pth'), map_location=device)
+        checkpoint_embeddings = torch.load(join(dirname(__file__),'checkpoints/checkpoint_embeddings.pth'), map_location=device)
         
         # load weights for ghiasi and stylePredictor, and mean / covariance for the embedding distribution:
         self.ghiasi.load_state_dict(checkpoint_ghiasi['state_dict_ghiasi'],strict=False)
@@ -71,7 +71,10 @@ class StyleAugmentor(nn.Module):
         self.cov = checkpoint_embeddings['pbn_embedding_covariance']
         
         # compute SVD of covariance matrix:
-        u, s, vh = np.linalg.svd(self.cov.numpy())
+        if self.device=="cpu":
+            u, s, vh = np.linalg.svd(self.cov.numpy())
+        else:
+            u, s, vh = np.linalg.svd(self.cov.cpu().numpy())
         
         self.A = np.matmul(u,np.diag(s**0.5))
         self.A = torch.tensor(self.A).float().to(device) # 100 x 100
