@@ -16,3 +16,4 @@ Two augmentators are implemented in this project.
 - [ ] Traditional augmentation.
 - [ ] AugMix.
 - [ ] Mixup.
+- [ ] Copy and paste.
