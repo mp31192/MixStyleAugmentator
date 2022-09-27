@@ -12,4 +12,7 @@ Two augmentators are implemented in this project.
 - [X] Available for single channel images (gray images).
 - [ ] Available for 3D patches.
 - [X] More optional parameters for mixstyleaug. A random_mix parameter has been added.
-- [X] Fix the bugs of saving in [**example_for_a_image.py**](https://github.com/mp31192/MixStyleAugmentator/blob/main/example_for_a_image.py)
+- [X] Fix the bugs of saving in [**example_for_a_image.py**](https://github.com/mp31192/MixStyleAugmentator/blob/main/example_for_a_image.py).
+- [ ] Traditional augmentation.
+- [ ] AugMix.
+- [ ] Mixup.
