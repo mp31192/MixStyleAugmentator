@@ -9,11 +9,7 @@ Q2: Clarifications of description in Sect.2.3 MaskAug (R1). A2: To provide clear
 
 Q3: Clarifications about Eq.1 (R1). A3: $A$ is not the feature maps after GAP, as shown in Fig.S1 of supplementary materials. Dynamic range noise for the mean and variance is the same.
 
-Q4: Clarifications about the use of training/testing sources, validation set, and the input/output in Fig.2 (R1).
-A4:
-- As stated in the 3rd sentence of Sect.3, our datasets are divided into training and testing sources. Images from training and testing sources are available during training, but only labels from training source are used for loss computation.
-- We randomly selected 20% of training set as validation set during training.
-- In Fig.2, inputs are the images from training and testing sources, and outputs are the segmentation and classification results.
+Q4: Clarifications about the use of training/testing sources, validation set, and the input/output in Fig.2 (R1). A4: -As stated in the 3rd sentence of Sect.3, our datasets are divided into training and testing sources. Images from training and testing sources are available during training, but only labels from training source are used for loss computation. -We randomly selected 20% of training set as validation set during training. -In Fig.2, inputs are the images from training and testing sources, and outputs are the segmentation and classification results.
 
 Q5: Why are LD1 and TD1 results for the training data in Table.1 (R1)? A5: They are not the results for training data. As mentioned in the caption of Table.1 and the 4th sentence of Sect.3, they represent the performance of the testing set from training sources.
 
@@ -25,6 +21,6 @@ Q8: Conduct experiments using public datasets (R1). A8: We conducted experiments
 
 Q9: A comparison with AutoAug would be helpful (R1). A9: To address your concern, we applied AutoAug to our datasets and found that it further highlights the superiority of our method. The DSC/AUROC values for LD1, LD2, LD3, TD1 and TD2 using AutoAug are 0.939/0.871, 0.876/0.653, 0.914/0.678, 0.687/0.769 and 0.535/0.392, respectively. The results indicate that AutoAug performs worse than our method and support our conclusions.
 
-Q10: p could be reported in Table.1 (R3). A10: To compare our method with traditional augmentation, we conducted statistical analysis and observed significant improvements in DSC for TD1 and TD2 (p<0.05), as well as significant improvements in AUROC for LD1, LD2, LD3 and TD1 (p<0.05).
-
-Q11: Question about negligible improvement of dice score (R3). A11: The DSC shows no significant improvement in LDs, as the liver is easy to segment, resulting in a high baseline. Although the increase in DSC is slight, our method improves both AUROC and DSC across all sources.
+Q10: p could be reported in Table.1 and question about negligible improvement of dice score (R3). A10: 
+- To compare our method with traditional augmentation, we conducted statistical analysis and observed significant improvements in DSC for TD1 and TD2 (p<0.05), as well as significant improvements in AUROC for LD1, LD2, LD3 and TD1 (p<0.05).
+- The DSC shows no significant improvement in LDs, as the liver is easy to segment, resulting in a high baseline. Although the increase in DSC is slight, our method improves both AUROC and DSC across all sources.
