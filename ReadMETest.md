@@ -10,7 +10,11 @@ Q2: Clarifications of description in Sect.2.3 MaskAug (R1). A2: To provide clear
 
 Q3: Clarifications about Eq.1 (R1). A3: $A$ is not the feature maps after GAP, as shown in Fig.S1 of supplementary materials. Dynamic range noise for the mean and variance is the same.
 
-Q4: Clarifications about the use of training/testing sources, validation set, and the input/output in Fig.2 (R1). A4: - As stated in the 3rd sentence of Sect.3, our datasets are divided into training and testing sources. Images from training and testing sources are available during training, but only labels from training source are used for loss computation. - We randomly selected 20% of training set as validation set during training. - In Fig.2, inputs are the images from training and testing sources, and outputs are the segmentation and classification results.
+Q4: Clarifications about the use of training/testing sources, validation set, and the input/output in Fig.2 (R1).
+A4:
+- As stated in the 3rd sentence of Sect.3, our datasets are divided into training and testing sources. Images from training and testing sources are available during training, but only labels from training source are used for loss computation.
+- We randomly selected 20% of training set as validation set during training.
+- In Fig.2, inputs are the images from training and testing sources, and outputs are the segmentation and classification results.
 
 Q5: Why are LD1 and TD1 results for the training data in Table.1 (R1)? A5: They are not the results for training data. As mentioned in the caption of Table.1 and the 4th sentence of Sect.3, they represent the performance of the testing set from training sources.
 
