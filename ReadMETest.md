@@ -1,8 +1,7 @@
-Thanks to the meta-reviewer and reviewers for your valuable comments of our work. We appreciate your recognition of:
+Thanks to the meta-reviewer and reviewers for your valuable comments of our work. Especially, thanks to R2 and R3 for accepting the paper directly. We appreciate your recognition of:
 1. Our contributions (Meta-Reviewer: “useful for the ultrasound imaging community”);
 2. Sufficient experiments (R3: “Good ablation experiment” R2: “demonstrate the improvements and advantages”);
 3. Well-organization (R2: “detailed explanation of the proposed method” R2: “well-designed flowcharts and figures” R3: “well-written”).
-Especially, thanks to R2 and R3 for accepting the paper directly.
 
 Q1: Why focus on ultrasound (US) (R1). A1: US presents unique challenges compared to other modalities. 1) US is affected by speckle noise, which differs from common Gaussian noise. 2) Acoustic shadow in US can cause missing information in the image. These characteristics can lead to degraded performance in similar studies.
 
